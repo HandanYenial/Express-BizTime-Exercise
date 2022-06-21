@@ -9,9 +9,8 @@ const ExpressError = require("./expressError")
 // Parse request bodies for JSON
 app.use(express.json());
 
-const cRoutes = require("./routes/users");
-app.use("/companies" , cRoutes);
-
+const cRoutes = require("./routes/companies");
+app.use("/users", cRoutes);
 
 /** 404 handler */
 

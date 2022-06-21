@@ -5,6 +5,7 @@ const ExpressError = require("../expressError");
 const router = express.Router();
 const db = require("../db");
 
+
 //GET/companies
 //Returns list of companies, like {companies: [{code, name}, ...]}
 
@@ -16,3 +17,4 @@ router.get("/" , async(req,res,next) => {
         next(e);
     }
 });
+

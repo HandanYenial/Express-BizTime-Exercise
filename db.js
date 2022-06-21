@@ -29,4 +29,5 @@ let db = new Client({
 db.connect();
 
 // Step5: To import this database from some other file let's add module.exports
+
 module.exports = db;
