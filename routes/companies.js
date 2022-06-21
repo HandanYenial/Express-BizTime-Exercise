@@ -17,6 +17,9 @@ router.get("/" , async(req,res,next) => {
         next(e);
     }
 });
+//GET /companies/[code]
+//Return obj of company: {company: {code, name, description}}
+//If the company given cannot be found, this should return a 404 status response.
 
 router.get("/:code" , async(req,res,next) => {
     try{
@@ -31,6 +34,11 @@ router.get("/:code" , async(req,res,next) => {
     }
 });
 
+//POST /companies
+//Adds a company.
+//Needs to be given JSON like: {code, name, description}
+//Returns obj of new company: {company: {code, name, description}}
+
 router.post("/" , async(req,res,next) => {
     try{
         //const{ code, name, description } = req.params; can be used also
@@ -40,6 +48,12 @@ router.post("/" , async(req,res,next) => {
         next(e);
     }
 });
+
+//PUT /companies/[code]
+//Edit existing company.
+//Should return 404 if company cannot be found.
+//Needs to be given JSON like: {name, description}
+//Returns update company object: {company: {code, name, description}}
 
 router.put("/:code" , async(req,res,next) =>{
     try{
@@ -56,8 +70,13 @@ router.put("/:code" , async(req,res,next) =>{
       return next(e);
     }
   });
+ 
   
-  router.delete("/:code" , async(req,res,next) =>{
+//DELETE /companies/[code]
+//Deletes company.Should return 404 if company cannot be found.
+//Returns {status: "deleted"}
+
+router.delete("/:code" , async(req,res,next) =>{
     try{
         const { code } = req.params;
         const result = db.query("DELETE FROM companies WHERE code=$1" , [ code ]);
