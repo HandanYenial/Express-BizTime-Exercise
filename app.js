@@ -10,7 +10,7 @@ const ExpressError = require("./expressError")
 app.use(express.json());
 
 const cRoutes = require("./routes/companies");
-app.use("/users", cRoutes);
+app.use("/companies", cRoutes);
 
 /** 404 handler */
 
