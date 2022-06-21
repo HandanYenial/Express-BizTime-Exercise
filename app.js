@@ -6,7 +6,11 @@ const express = require("express");
 const app = express();
 const ExpressError = require("./expressError")
 
+// Parse request bodies for JSON
 app.use(express.json());
+
+const cRoutes = require("./routes/users");
+app.use("/companies" , cRoutes);
 
 
 /** 404 handler */
