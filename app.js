@@ -18,8 +18,8 @@ app.use("/invoices", iRoutes);
 /** 404 handler */
 
 app.use(function(req, res, next) {
-  const err = new ExpressError("Not Found", 404);
-  return next(err);
+  const e = new ExpressError("Not Found", 404);
+  return next(e);
 });
 
 /** general error handler */

@@ -111,7 +111,7 @@ describe("DELETE /" , function(){
         const response = await request(app)
              .delete("/companies/apple");
 
-        expect(response.body).toEqual({"status" : "deleted"});
+        expect(response.body).toEqual({"msg" : "DELETED"});
     });
     // if there isn't a compnay with the given code
     test("It should return 404 for no company in that name" , async function(){
